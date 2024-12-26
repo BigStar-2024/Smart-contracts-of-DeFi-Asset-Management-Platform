@@ -13,6 +13,8 @@ contract DeployCF is Script {
     address public constant POOL_UNISWAPV3_WETH_COMP_3000 = 0x2260E0081A2A042DC55A07D379eb3c18bE28A1F2;
     string public constant UNISWAPV3 = "UniswapV3";
 
+
+
     function run() external {
         IFactory factory = IFactory(IPlatform(PLATFORM).factory());
         ISwapper swapper = ISwapper(IPlatform(PLATFORM).swapper());
@@ -64,3 +66,23 @@ contract DeployCF is Script {
 
     function testDeployPolygon() external {}
 }
+
+
+// function run() external {
+//         uint deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+//         vm.startBroadcast(deployerPrivateKey);
+
+//         new GammaQuickSwapMerklFarmStrategy();
+
+//         IFactory factory = IFactory(IPlatform(PLATFORM).factory());
+//         IFactory.Farm[] memory _farms = new IFactory.Farm[](1);
+//         _farms[0] = _makeGammaQuickSwapMerklFarm(
+//             PolygonLib.TOKEN_dQUICK,
+//             PolygonLib.GAMMA_QUICKSWAP_USDCe_USDT,
+//             PolygonLib.GAMMA_QUICKSWAP_UNIPROXY,
+//             ALMPositionNameLib.STABLE
+//         );
+//         factory.addFarms(_farms);
+
+//         vm.stopBroadcast();
+//     }
